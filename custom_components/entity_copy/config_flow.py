@@ -42,14 +42,14 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     async def async_step_user(self, user_input: Optional[Dict[str, Any]] = None):
         """Handle the initial step."""
         errors = {}
-        if user_input is not None:
-            self.data = user_input
-            return self.async_create_entry(title=DOMAIN, data=self.data)
-
         if self._async_current_entries():
             return self.async_abort(reason="single_instance_allowed")
         if self.hass.data.get(DOMAIN):
             return self.async_abort(reason="single_instance_allowed")
+            
+        if user_input is not None:
+            self.data = user_input
+            return self.async_create_entry(title=DOMAIN, data=self.data)
             
         # If there is no user input or there were errors, show the form again, including any errors that were found with the input.
         return self.async_show_form(
