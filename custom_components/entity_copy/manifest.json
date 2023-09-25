@@ -1,0 +1,16 @@
+{
+  "domain": "entity_copy",
+  "name": "Entity Copy",
+  "config_flow": true,
+  "documentation": "https://github.com/oukene/entity_copy",
+  "requirements": [],
+  "ssdp": [],
+  "zeroconf": [],
+  "homekit": {},
+  "dependencies": [],
+  "codeowners": [
+    "@oukene"
+  ],
+  "iot_class": "",
+  "version": "1.0.0"
+}
