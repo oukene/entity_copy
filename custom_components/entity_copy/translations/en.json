@@ -24,7 +24,7 @@
                 }
             },
             "entity": {
-                "title": "add copy entity",
+                "title": "copy entity setting",
                 "data": {
                     "origin_entity": "Please enter the source entity id",
                     "dest_device": "Select a device to contain copied entities",
