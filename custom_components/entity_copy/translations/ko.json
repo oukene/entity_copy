@@ -1,10 +1,11 @@
 {
     "title": "\uad6c\uc131\uc694\uc18c\u0020\ubcf5\uc0ac\uae30",
     "config": {
+        "abort": {
+            "single_instance_allowed": "\ud655\uc778\uc744\u0020\ub204\ub974\uba74\u0020\uc124\uce58\uac00\u0020\ub429\ub2c8\ub2e4"
+        },
         "step": {
-            "abort": {
-                "single_instance_allowed": "\ud655\uc778\uc744\u0020\ub204\ub974\uba74\u0020\uc124\uce58\uac00\u0020\ub429\ub2c8\ub2e4"
-            },
+            
             "confirm": {
                 "description": "\uc124\uce58\ud560\uae4c\uc694\u003f?"
             },

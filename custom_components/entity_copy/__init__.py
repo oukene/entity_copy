@@ -4,7 +4,7 @@ import logging
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 
-from .const import DOMAIN, CONF_DEVICE_NAME, ENTITY_TYPE
+from .const import DOMAIN, ENTITY_TYPE
 
 from .device import Device
 
