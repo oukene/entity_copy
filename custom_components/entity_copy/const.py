@@ -3,8 +3,6 @@ NAME = "Entity Copy"
 VERSION = "1.0.0"
 
 #ENTITY_ID_FORMAT = DOMAIN + ".{}"
-
-CONF_DEVICE_NAME = "device_name"
 CONF_ORIGIN_ENTITY = "origin_entity"
 CONF_ENTITIES = "entities"
 CONF_SELECT_ENTITY = "select_entity"
