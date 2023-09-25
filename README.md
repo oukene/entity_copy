@@ -31,6 +31,7 @@ Please refer to the image below
 
 
 ![select_function.jpg](https://raw.githubusercontent.com/oukene/entity_copy/main/images/select_function.jpg)
+<br><br>
 ![add_entity.jpg](https://raw.githubusercontent.com/oukene/entity_copy/main/images/add_entity.jpg)
-
+<br><br>
 ![modify_entity.jpg](https://raw.githubusercontent.com/oukene/entity_copy/main/images/modify_entity.jpg)
