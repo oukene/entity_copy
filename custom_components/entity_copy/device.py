@@ -134,7 +134,7 @@ class EntityBase(Entity):
         self.hass = hass
         self._name = conf[2]
         self._dest_device_id = conf[1]
-        self._origin_entity_id = conf[0]
+        self._origin_entity = conf[0]
         self._entry_id = entry_id
         self._conf = conf
 
@@ -170,7 +170,7 @@ class EntityBase(Entity):
         self.entity_id = async_generate_entity_id(ENTITY_ID_FORMAT, "{}_{}".format(self._device.name, self._name), current_ids="", hass=hass)
 
         registry = er.async_get(hass)
-        origin_entity = registry.async_get(self._origin_entity_id)
+        origin_entity = registry.async_get(self._origin_entity)
 
         _LOGGER.debug("entity_id : %s", self.entity_id)
 
@@ -178,12 +178,12 @@ class EntityBase(Entity):
         self._attributes = {}
         
         self.hass.data[DOMAIN][self._entry_id]["listener"].append(async_track_state_change(
-            self.hass, self._origin_entity_id, self.entity_listener))
-        new_state = self.hass.states.get(self._origin_entity_id)
+            self.hass, self._origin_entity, self.entity_listener))
+        new_state = self.hass.states.get(self._origin_entity)
         old_state = self.hass.states.get(self.entity_id)
         _LOGGER.debug("origin entity state - " + str(new_state))
 
-        self.entity_listener(self._origin_entity_id, old_state, new_state)
+        self.entity_listener(self._origin_entity, old_state, new_state)
 
 
     def entity_listener(self, entity, old_state, new_state):

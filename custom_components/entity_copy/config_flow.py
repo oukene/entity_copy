@@ -88,9 +88,9 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
         self._entity_registry.async_remove(entity_id)
 
         device_ids = set([])
-        entities = homeassistant.helpers.entity_registry.async_entries_for_config_entry(self._entity_registry, self.config_entry.entry_id)
-        device_registry = homeassistant.helpers.device_registry.async_get(self.hass)
-        devices = homeassistant.helpers.device_registry.async_entries_for_config_entry(device_registry, self.config_entry.entry_id)
+        entities = er.async_entries_for_config_entry(self._entity_registry, self.config_entry.entry_id)
+        device_registry = dr.async_get(self.hass)
+        devices = dr.async_entries_for_config_entry(device_registry, self.config_entry.entry_id)
 
         for e in entities:
             device_ids.add(e.device_id)
@@ -106,7 +106,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
 
         errors: Dict[str, str] = {}
 
-        self._entity_registry = homeassistant.helpers.entity_registry.async_get(self.hass)
+        self._entity_registry = er.async_get(self.hass)
 
         dev_reg = dr.async_get(self.hass)
 
@@ -140,7 +140,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
         self._selected_entity = None
 
         errors: Dict[str, str] = {}
-        entities = homeassistant.helpers.entity_registry.async_entries_for_config_entry(
+        entities = er.async_entries_for_config_entry(
             self._entity_registry, self.config_entry.entry_id)
 
         if user_input is not None:
@@ -178,7 +178,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
     async def async_step_entity(self, user_input: Optional[Dict[str, Any]] = None):
         """Second step in config flow to add a repo to watch."""
         errors: Dict[str, str] = {}
-        entity_registry = homeassistant.helpers.entity_registry.async_get(
+        entity_registry = er.async_get(
             self.hass)
         dev_reg = dr.async_get(self.hass)
 
