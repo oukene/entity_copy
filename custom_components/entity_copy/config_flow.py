@@ -192,7 +192,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 self.data[CONF_ENTITIES].append(
                     [
                         user_input[CONF_ORIGIN_ENTITY],
-                        user_input[CONF_DEST_DEVICE],
+                        user_input.get(CONF_DEST_DEVICE, None),
                         user_input[CONF_NAME],
                     ]
                 )
@@ -204,12 +204,13 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
         for key, value in ENTITY_TYPE.items():
             for e in value:
                 entity.append(e)
+        _LOGGER.debug("selected conf is : " + str(self._selected_conf))
         return self.async_show_form(
             step_id="entity",
             data_schema=vol.Schema(
                     {
                         vol.Required(CONF_ORIGIN_ENTITY, default=self._selected_conf[0] if self._selected_conf is not None else None): selector.EntitySelector(selector.EntitySelectorConfig(domain=entity)),
-                        vol.Required(CONF_DEST_DEVICE, default=self._selected_conf[1] if self._selected_conf is not None else None): selector.DeviceSelector(selector.DeviceSelectorConfig()),
+                        vol.Optional(CONF_DEST_DEVICE, description={"suggested_value": self._selected_conf[1] if self._selected_conf is not None else None}): selector.DeviceSelector(selector.DeviceSelectorConfig()),
                         vol.Required(CONF_NAME, default=self._selected_conf[2] if self._selected_conf is not None else None): cv.string,
                     }
             ), errors=errors

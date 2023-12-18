@@ -46,7 +46,6 @@ async def async_setup(hass, platform, entity_type, config_entry, async_add_devic
 
     if config_entry.options.get(CONF_ENTITIES) != None:
         for conf in config_entry.options.get(CONF_ENTITIES):
-            _LOGGER.debug("conf : " + str(conf))
             #_LOGGER.debug("key : %s", key)
             #entity = config_entry.options[CONF_ENTITIES][key]
             for e in ENTITY_TYPE[platform]:
@@ -166,8 +165,8 @@ class EntityBase(Entity):
                 manufacturer=device.manufacturer
             )
 
-        self._unique_id = async_generate_entity_id(ENTITY_ID_FORMAT, "{}_{}".format(self._device.name, self._name), current_ids="", hass=hass)
-        self.entity_id = async_generate_entity_id(ENTITY_ID_FORMAT, "{}_{}".format(self._device.name, self._name), current_ids="", hass=hass)
+        self._unique_id = async_generate_entity_id(ENTITY_ID_FORMAT, "{}_{}".format(self._device_info["name"], self._name), current_ids="", hass=hass)
+        self.entity_id = async_generate_entity_id(ENTITY_ID_FORMAT, "{}_{}".format(self._device_info["name"], self._name), current_ids="", hass=hass)
 
         registry = er.async_get(hass)
         origin_entity = registry.async_get(self._origin_entity)

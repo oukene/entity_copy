@@ -1,39 +1,37 @@
 {
-    "title": "\uad6c\uc131\uc694\uc18c\u0020\ubcf5\uc0ac\uae30",
+    "title": "\uad6c\uc131\uc694\uc18c \ubcf5\uc0ac\uae30",
     "config": {
         "abort": {
-            "single_instance_allowed": "\ucef4\ud3ec\ub10c\ud2b8\u0020\uc124\uce58\ub294\u0020\ud558\ub098\ub9cc\u0020\uac00\ub2a5\ud569\ub2c8\ub2e4\u002e\u0020\uc774\ubbf8\u0020\uc124\uce58\ub418\uc5b4\uc788\ub294\u0020\ud56d\ubaa9\uc744\u0020\uc774\uc6a9\ud558\uc138\uc694"
+            "single_instance_allowed": "\ucef4\ud3ec\ub10c\ud2b8 \uc124\uce58\ub294 \ud558\ub098\ub9cc \uac00\ub2a5\ud569\ub2c8\ub2e4. \uc774\ubbf8 \uc124\uce58\ub418\uc5b4\uc788\ub294 \ud56d\ubaa9\uc744 \uc774\uc6a9\ud558\uc138\uc694"
         },
         "step": {
-            
             "confirm": {
-                "description": "\uc124\uce58\ud560\uae4c\uc694\u003f?"
+                "description": "\uc124\uce58\ud560\uae4c\uc694??"
             },
             "user": {
-                "description": "\ud655\uc778\uc744\u0020\ub204\ub974\uba74\u0020\uc124\uce58\uac00\u0020\ub429\ub2c8\ub2e4"
+                "description": "\ud655\uc778\uc744 \ub204\ub974\uba74 \uc124\uce58\uac00 \ub429\ub2c8\ub2e4"
             }
         }
     },
     "options": {
         "step": {
             "init": {
-                "title": "\uad6c\uc131\uc694\uc18c\u0020\ubcf5\uc0ac\uae30\u0020\uc124\uc815",
-                "data": {
-                }
+                "title": "\uad6c\uc131\uc694\uc18c \ubcf5\uc0ac\uae30 \uc124\uc815",
+                "data": {}
             },
             "entity": {
-                "title": "\ubcf5\uc0ac\u0020\uad6c\uc131\uc694\uc18c\u0020\uc124\uc815",
+                "title": "\ubcf5\uc0ac \uad6c\uc131\uc694\uc18c \uc124\uc815",
                 "data": {
-                    "origin_entity": "\uc6d0\ubcf8\u0020\uad6c\uc131\uc694\uc18c\ub97c\u0020\uc120\ud0dd\ud558\uc138\uc694",
-                    "dest_device": "\ubcf5\uc0ac\ud55c\u0020\uad6c\uc131\uc694\uc18c\ub97c\u0020\ud3ec\ud568\ud560\u0020\uc7a5\uce58\ub97c\u0020\uc120\ud0dd\ud558\uc138\uc694",
-                    "name": "\uc0dd\uc131\ub420\u0020\uad6c\uc131\uc694\uc18c\uc758\u0020\uc774\ub984\uc744\u0020\uc785\ub825\ud558\uc138\uc694"
+                    "origin_entity": "\uc6d0\ubcf8 \uad6c\uc131\uc694\uc18c\ub97c \uc120\ud0dd\ud558\uc138\uc694",
+                    "dest_device": "\ubcf5\uc0ac\ud55c \uad6c\uc131\uc694\uc18c\ub97c \ud3ec\ud568\ud560 \uc7a5\uce58\ub97c \uc120\ud0dd\ud558\uc138\uc694",
+                    "name": "\uc0dd\uc131\ub420 \uad6c\uc131\uc694\uc18c\uc758 \uc774\ub984\uc744 \uc785\ub825\ud558\uc138\uc694"
                 }
             },
             "select": {
-                "title": "\uad6c\uc131\uc694\uc18c\ub97c\u0020\uc218\uc815\ud569\ub2c8\ub2e4",
+                "title": "\uad6c\uc131\uc694\uc18c\ub97c \uc218\uc815\ud569\ub2c8\ub2e4",
                 "data": {
-                    "select_entity": "\uc218\uc815\ud560\u0020\uad6c\uc131\uc694\uc18c\ub97c\u0020\uc120\ud0dd\ud558\uc138\uc694",
-                    "remove_entity": "\uad6c\uc131\uc694\uc18c\ub97c\u0020\uc0ad\uc81c\ud569\ub2c8\ub2e4"
+                    "select_entity": "\uc218\uc815\ud560 \uad6c\uc131\uc694\uc18c\ub97c \uc120\ud0dd\ud558\uc138\uc694",
+                    "remove_entity": "\uad6c\uc131\uc694\uc18c\ub97c \uc0ad\uc81c\ud569\ub2c8\ub2e4"
                 }
             }
         }
