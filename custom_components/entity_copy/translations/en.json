@@ -28,7 +28,8 @@
                     "origin_entity": "Please enter the source entity id",
                     "dest_device": "Select a device to contain copied entities",
                     "name": "Enter the entity name",
-                    "parent_device_entity_id_format": "Create an entity ID according to the name of the included device."
+                    "parent_device_entity_id_format": "Create an entity ID according to the name of the included device.",
+                    "hide_origin_entity": "Hide the source entity"
                 }
             },
             "select": {
@@ -37,6 +38,14 @@
                     "select_entity": "Select the entity you want to edit",
                     "remove_entity": "Delete selected entity"
                 }
+            }
+        }
+    },
+    "selector": {
+        "option_select": {
+            "options": {
+                "add_entity": "add entity",
+                "modify_entity": "modify entity"
             }
         }
     }

@@ -28,8 +28,8 @@ import asyncio
 
 _LOGGER = logging.getLogger(__name__)
 
-OPTION_ADD_DEVICE = "add entity"
-OPTION_MODIFY_ENTITY = "modify entity"
+OPTION_ADD_DEVICE = "add_entity"
+OPTION_MODIFY_ENTITY = "modify_entity"
 
 
 class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
@@ -128,7 +128,9 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
         
         options_schema = vol.Schema(
             {
-                vol.Optional(CONF_OPTIONS_SELECT): vol.In(option_devices),
+                #vol.Optional(CONF_OPTIONS_SELECT): vol.In(option_devices),
+                vol.Optional(CONF_OPTIONS_SELECT): selector.SelectSelector(selector.SelectSelectorConfig(options=option_devices, mode=selector.SelectSelectorMode.LIST, translation_key="option_select")),
+                
             }
         )
 
@@ -196,6 +198,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                         user_input.get(CONF_DEST_DEVICE, None),
                         user_input[CONF_NAME],
                         user_input.get(CONF_PARENT_DEVICE_ENTITY_ID_FORMAT, False),
+                        user_input.get(CONF_HIDE_ORIGIN_ENTITY, False),
                     ]
                 )
 
@@ -215,7 +218,8 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                         vol.Required(CONF_ORIGIN_ENTITY, default=self._selected_conf[0] if self._selected_conf is not None else None): selector.EntitySelector(selector.EntitySelectorConfig(domain=entity)),
                         vol.Optional(CONF_DEST_DEVICE, description={"suggested_value": self._selected_conf[1] if self._selected_conf is not None else None}): selector.DeviceSelector(selector.DeviceSelectorConfig()),
                         vol.Required(CONF_NAME, default=self._selected_conf[2] if self._selected_conf is not None else None): cv.string,
-                        vol.Optional(CONF_PARENT_DEVICE_ENTITY_ID_FORMAT, description={"suggested_value": self._selected_conf[3] if self._selected_conf is not None and len(self._selected_conf) >= 4 else False}): selector.BooleanSelector(selector.BooleanSelectorConfig())
+                        vol.Optional(CONF_PARENT_DEVICE_ENTITY_ID_FORMAT, description={"suggested_value": self._selected_conf[3] if self._selected_conf is not None and len(self._selected_conf) >= 4 else False}): selector.BooleanSelector(selector.BooleanSelectorConfig()),
+                        vol.Optional(CONF_HIDE_ORIGIN_ENTITY, description={"suggested_value": self._selected_conf[4] if self._selected_conf is not None and len(self._selected_conf) >= 5 else False}): selector.BooleanSelector(selector.BooleanSelectorConfig())
                     }
             ), errors=errors
         )

@@ -8,13 +8,6 @@ from .const import DOMAIN, ENTITY_TYPE, CONF_DEVICE_NAME
 
 from .device import Device
 
-from homeassistant.helpers import (
-    device_registry as dr,
-    entity_platform,
-    entity_registry as er,
-)
-
-
 _LOGGER = logging.getLogger(__name__)
 
 

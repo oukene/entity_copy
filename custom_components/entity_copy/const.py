@@ -11,6 +11,7 @@ CONF_REMOVE_ENTITY = "remove_entity"
 CONF_OPTIONS_SELECT = "options_select"
 CONF_DEST_DEVICE = "dest_device"
 CONF_PARENT_DEVICE_ENTITY_ID_FORMAT = "parent_device_entity_id_format"
+CONF_HIDE_ORIGIN_ENTITY = "hide_origin_entity"
 CONF_NAME = "name"
 
 ATTR_CONF = "configure"

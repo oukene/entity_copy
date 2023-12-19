@@ -21,6 +21,7 @@ from homeassistant.helpers import (
     entity_registry as er,
 )
 
+from homeassistant.helpers.entity_registry import RegistryEntryHider
 
 from homeassistant.helpers import config_validation as cv, discovery, entity, service
 
@@ -172,6 +173,12 @@ class EntityBase(Entity):
             if entry.entry_id in (d.config_entries):
                 device_name = d.name_by_user if d.name_by_user else d.name
         """
+
+        if len(conf) >= 5 and conf[4]:
+            er.async_get(hass).async_update_entity(entity_id=self._origin_entity, hidden_by=RegistryEntryHider.USER)
+        else:
+            er.async_get(hass).async_update_entity(entity_id=self._origin_entity, hidden_by=None)
+
         self._unique_id = async_generate_entity_id(ENTITY_ID_FORMAT, "{}_{}".format(device_name, self._name), current_ids="", hass=hass)
         self.entity_id = async_generate_entity_id(ENTITY_ID_FORMAT, "{}_{}".format(device_name, self._name), current_ids="", hass=hass)
 
