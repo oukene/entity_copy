@@ -9,6 +9,9 @@
                 "description": "\uc124\uce58\ud560\uae4c\uc694??"
             },
             "user": {
+                "data": {
+                    "device_name": "\uae30\ubcf8 \uc0dd\uc131\ub420 \uc7a5\uce58\uc758 \uc774\ub984\uc744 \uc785\ub825\ud558\uc138\uc694"
+                },
                 "description": "\ud655\uc778\uc744 \ub204\ub974\uba74 \uc124\uce58\uac00 \ub429\ub2c8\ub2e4"
             }
         }
@@ -24,7 +27,8 @@
                 "data": {
                     "origin_entity": "\uc6d0\ubcf8 \uad6c\uc131\uc694\uc18c\ub97c \uc120\ud0dd\ud558\uc138\uc694",
                     "dest_device": "\ubcf5\uc0ac\ud55c \uad6c\uc131\uc694\uc18c\ub97c \ud3ec\ud568\ud560 \uc7a5\uce58\ub97c \uc120\ud0dd\ud558\uc138\uc694",
-                    "name": "\uc0dd\uc131\ub420 \uad6c\uc131\uc694\uc18c\uc758 \uc774\ub984\uc744 \uc785\ub825\ud558\uc138\uc694"
+                    "name": "\uc0dd\uc131\ub420 \uad6c\uc131\uc694\uc18c\uc758 \uc774\ub984\uc744 \uc785\ub825\ud558\uc138\uc694",
+                    "parent_device_entity_id_format": "\ud3ec\ud568\ub41c \uc7a5\uce58\uc758 \uc774\ub984\uc5d0 \ub530\ub77c \uc5d4\ud130\ud2f0 ID\ub97c \uc0dd\uc131\ud569\ub2c8\ub2e4"
                 }
             },
             "select": {

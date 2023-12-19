@@ -4,9 +4,15 @@ import logging
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 
-from .const import DOMAIN, ENTITY_TYPE
+from .const import DOMAIN, ENTITY_TYPE, CONF_DEVICE_NAME
 
 from .device import Device
+
+from homeassistant.helpers import (
+    device_registry as dr,
+    entity_platform,
+    entity_registry as er,
+)
 
 
 _LOGGER = logging.getLogger(__name__)
@@ -30,7 +36,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     hass.data[DOMAIN][entry.entry_id] = {}
     hass.data[DOMAIN][entry.entry_id]["listener"] = []
 
-    hass.data[DOMAIN][entry.entry_id]["device"] = Device(DOMAIN, entry)
+    hass.data[DOMAIN][entry.entry_id]["device"] = Device(entry.data.get(CONF_DEVICE_NAME), entry)
 
     entry.async_on_unload(entry.add_update_listener(update_listener))
     #entry.add_update_listener(update_listener)

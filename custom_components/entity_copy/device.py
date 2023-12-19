@@ -65,10 +65,7 @@ async def async_setup(hass, platform, entity_type, config_entry, async_add_devic
             async_add_devices(new_devices)
 
 class Device:
-    """Dummy roller (device for HA) for Hello World example."""
-
     def __init__(self, name, config):
-        """Init dummy roller."""
         self._id = f"{name}_{config.entry_id}"
         self._name = name
         self._callbacks = set()
@@ -165,8 +162,18 @@ class EntityBase(Entity):
                 manufacturer=device.manufacturer
             )
 
-        self._unique_id = async_generate_entity_id(ENTITY_ID_FORMAT, "{}_{}".format(self._device_info["name"], self._name), current_ids="", hass=hass)
-        self.entity_id = async_generate_entity_id(ENTITY_ID_FORMAT, "{}_{}".format(self._device_info["name"], self._name), current_ids="", hass=hass)
+        device_name = self._device_info["name"] if len(conf) >= 4 and conf[3] else self._device.name
+        """
+        device_registry = dr.async_get(hass)
+        devices = dr.async_entries_for_config_entry(
+            device_registry, entry.entry_id)
+        device_name = entry.data.get(CONF_DEVICE_NAME)
+        for d in devices:
+            if entry.entry_id in (d.config_entries):
+                device_name = d.name_by_user if d.name_by_user else d.name
+        """
+        self._unique_id = async_generate_entity_id(ENTITY_ID_FORMAT, "{}_{}".format(device_name, self._name), current_ids="", hass=hass)
+        self.entity_id = async_generate_entity_id(ENTITY_ID_FORMAT, "{}_{}".format(device_name, self._name), current_ids="", hass=hass)
 
         registry = er.async_get(hass)
         origin_entity = registry.async_get(self._origin_entity)

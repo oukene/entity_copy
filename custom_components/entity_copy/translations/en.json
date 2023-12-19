@@ -10,7 +10,7 @@
             },
             "user": {
                 "data": {
-                    "device_name": "Enter the device name to be created"
+                    "device_name": "input default device name"
                 },
                 "description": "Click OK to add intergration"
             }
@@ -27,7 +27,8 @@
                 "data": {
                     "origin_entity": "Please enter the source entity id",
                     "dest_device": "Select a device to contain copied entities",
-                    "name": "Enter the entity name"
+                    "name": "Enter the entity name",
+                    "parent_device_entity_id_format": "Create an entity ID according to the name of the included device."
                 }
             },
             "select": {

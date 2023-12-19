@@ -42,20 +42,21 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     async def async_step_user(self, user_input: Optional[Dict[str, Any]] = None):
         """Handle the initial step."""
         errors = {}
+        """
         if self._async_current_entries():
             return self.async_abort(reason="single_instance_allowed")
         if self.hass.data.get(DOMAIN):
             return self.async_abort(reason="single_instance_allowed")
-            
+        """
         if user_input is not None:
             self.data = user_input
-            return self.async_create_entry(title=DOMAIN, data=self.data)
-            
+            return self.async_create_entry(title=user_input[CONF_DEVICE_NAME], data=self.data)
+        
         # If there is no user input or there were errors, show the form again, including any errors that were found with the input.
         return self.async_show_form(
             step_id="user", data_schema=vol.Schema(
                 {
-                    #vol.Required(CONF_DEVICE_NAME): cv.string
+                    vol.Required(CONF_DEVICE_NAME, default=DOMAIN): cv.string
                 }), errors=errors
         )
 
@@ -119,7 +120,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                     return await self.async_step_select()
                 else:
                     self.data["modifydatetime"] = datetime.now()
-                    return self.async_create_entry(title=NAME, data=self.data)
+                    return self.async_create_entry(title=self.config_entry.data.get(CONF_DEVICE_NAME), data=self.data)
                 
         option_devices = []
         option_devices.append(OPTION_ADD_DEVICE)
@@ -154,7 +155,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                     await self.remove_entity(user_input[CONF_SELECT_ENTITY], conf)
                     # create entry
                     self.data["modifydatetime"] = datetime.now()
-                    return self.async_create_entry(title=NAME, data=self.data)
+                    return self.async_create_entry(title=self.config_entry.data.get(CONF_DEVICE_NAME), data=self.data)
                 else:
                     # modify entity
                     self._selected_entity = user_input[CONF_SELECT_ENTITY]
@@ -194,16 +195,18 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                         user_input[CONF_ORIGIN_ENTITY],
                         user_input.get(CONF_DEST_DEVICE, None),
                         user_input[CONF_NAME],
+                        user_input.get(CONF_PARENT_DEVICE_ENTITY_ID_FORMAT, False),
                     ]
                 )
 
                 self.data["modifydatetime"] = datetime.now()
-                return self.async_create_entry(title=NAME, data=self.data)
+                return self.async_create_entry(title=self.config_entry.data.get(CONF_DEVICE_NAME), data=self.data)
 
         entity = []
         for key, value in ENTITY_TYPE.items():
             for e in value:
                 entity.append(e)
+
         _LOGGER.debug("selected conf is : " + str(self._selected_conf))
         return self.async_show_form(
             step_id="entity",
@@ -212,6 +215,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                         vol.Required(CONF_ORIGIN_ENTITY, default=self._selected_conf[0] if self._selected_conf is not None else None): selector.EntitySelector(selector.EntitySelectorConfig(domain=entity)),
                         vol.Optional(CONF_DEST_DEVICE, description={"suggested_value": self._selected_conf[1] if self._selected_conf is not None else None}): selector.DeviceSelector(selector.DeviceSelectorConfig()),
                         vol.Required(CONF_NAME, default=self._selected_conf[2] if self._selected_conf is not None else None): cv.string,
+                        vol.Optional(CONF_PARENT_DEVICE_ENTITY_ID_FORMAT, description={"suggested_value": self._selected_conf[3] if self._selected_conf is not None and len(self._selected_conf) >= 4 else False}): selector.BooleanSelector(selector.BooleanSelectorConfig())
                     }
             ), errors=errors
         )
