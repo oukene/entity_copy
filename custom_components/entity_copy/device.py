@@ -177,7 +177,10 @@ class EntityBase(Entity):
         if len(conf) >= 5 and conf[4]:
             er.async_get(hass).async_update_entity(entity_id=self._origin_entity, hidden_by=RegistryEntryHider.USER)
         else:
-            er.async_get(hass).async_update_entity(entity_id=self._origin_entity, hidden_by=None)
+            try:
+                er.async_get(hass).async_update_entity(entity_id=self._origin_entity, hidden_by=None)
+            except Exception as e:
+                """"""
 
         self._unique_id = async_generate_entity_id(ENTITY_ID_FORMAT, "{}_{}".format(device_name, self._name), current_ids="", hass=hass)
         self.entity_id = async_generate_entity_id(ENTITY_ID_FORMAT, "{}_{}".format(device_name, self._name), current_ids="", hass=hass)
