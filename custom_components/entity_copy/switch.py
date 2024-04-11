@@ -2,7 +2,7 @@ import logging
 
 from .const import *
 import re
-from homeassistant.components.switch import *
+from homeassistant.components.switch import SwitchEntity
 
 from .device import EntityBase, async_setup
 from typing import Any

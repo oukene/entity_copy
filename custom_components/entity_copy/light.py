@@ -2,7 +2,25 @@ import logging
 
 from .const import *
 import re
-from homeassistant.components.light import *
+from homeassistant.components.light import (
+    LightEntity,
+    ATTR_BRIGHTNESS,
+    ColorMode,
+    ATTR_COLOR_MODE,
+    ATTR_COLOR_TEMP_KELVIN,
+    ATTR_EFFECT,
+    ATTR_EFFECT_LIST,
+    ATTR_HS_COLOR,
+    ATTR_MAX_COLOR_TEMP_KELVIN,
+    ATTR_MIN_COLOR_TEMP_KELVIN,
+    ATTR_RGB_COLOR,
+    ATTR_RGBW_COLOR,
+    ATTR_RGBWW_COLOR,
+    ATTR_SUPPORTED_COLOR_MODES,
+    LightEntityFeature,
+    ATTR_XY_COLOR
+)
+from typing import Any
 
 from .device import EntityBase, async_setup
 

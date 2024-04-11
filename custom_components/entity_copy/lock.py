@@ -2,8 +2,8 @@ import logging
 
 from .const import *
 import re
-from homeassistant.components.lock import *
-
+from homeassistant.components.lock import LockEntity, ATTR_CHANGED_BY, LockEntityFeature
+from typing import Any
 from .device import EntityBase, async_setup
 
 from homeassistant.const import *

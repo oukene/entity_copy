@@ -2,7 +2,7 @@ import logging
 
 from .const import *
 import re
-from homeassistant.components.sensor import *
+from homeassistant.components.sensor import SensorEntity
 
 from .device import EntityBase, async_setup
 

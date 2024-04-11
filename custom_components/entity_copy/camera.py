@@ -2,7 +2,15 @@ import logging
 
 from .const import *
 import re
-from homeassistant.components.camera import *
+from homeassistant.components.camera import (
+    Camera, 
+    STATE_RECORDING, 
+    STATE_STREAMING,
+    StreamType,
+    CameraEntityFeature,
+    SERVICE_ENABLE_MOTION,
+    SERVICE_DISABLE_MOTION,
+)
 
 from .device import EntityBase, async_setup
 

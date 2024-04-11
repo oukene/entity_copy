@@ -2,7 +2,7 @@ import logging
 
 from .const import *
 import re
-from homeassistant.components.button import *
+from homeassistant.components.button import ButtonEntity, SERVICE_PRESS
 
 from .device import EntityBase, async_setup
 

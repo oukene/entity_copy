@@ -2,7 +2,7 @@ import logging
 
 from .const import *
 import re
-from homeassistant.components.select import *
+from homeassistant.components.select import SelectEntity, ATTR_OPTIONS
 
 from .device import EntityBase, async_setup
 

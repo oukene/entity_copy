@@ -2,8 +2,21 @@ import logging
 
 from .const import *
 import re
-from homeassistant.components.humidifier import *
-
+from homeassistant.components.humidifier import (
+    HumidifierEntity,
+    ATTR_HUMIDITY,
+    ATTR_CURRENT_HUMIDITY,
+    ATTR_MAX_HUMIDITY,
+    DEFAULT_MAX_HUMIDITY,
+    ATTR_MIN_HUMIDITY,
+    DEFAULT_MIN_HUMIDITY,
+    ATTR_AVAILABLE_MODES,
+    HumidifierAction,
+    ATTR_ACTION,
+    SERVICE_SET_MODE,
+    SERVICE_SET_HUMIDITY
+)
+from typing import Any
 from .device import EntityBase, async_setup
 
 from homeassistant.const import *

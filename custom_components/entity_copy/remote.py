@@ -2,7 +2,17 @@ import logging
 
 from .const import *
 import re
-from homeassistant.components.remote import *
+from homeassistant.components.remote import (
+    RemoteEntity, 
+    ATTR_CURRENT_ACTIVITY, 
+    ATTR_ACTIVITY_LIST, 
+    ATTR_ACTIVITY, 
+    SERVICE_SEND_COMMAND, 
+    SERVICE_LEARN_COMMAND, 
+    SERVICE_DELETE_COMMAND, 
+    Iterable
+)
+from typing import Any
 
 from .device import EntityBase, async_setup
 

@@ -2,7 +2,8 @@ import logging
 
 from .const import *
 import re
-from homeassistant.components.siren import *
+from homeassistant.components.siren import SirenEntity
+from typing import Any
 
 from .device import EntityBase, async_setup
 

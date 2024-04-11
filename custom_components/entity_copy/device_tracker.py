@@ -2,7 +2,7 @@ import logging
 
 from .const import *
 import re
-from homeassistant.components.device_tracker import *
+from homeassistant.components.device_tracker import TrackerEntity, ScannerEntity, ATTR_LOCATION_NAME
 from homeassistant.components.device_tracker.config_entry import *
 
 from .device import EntityBase, async_setup

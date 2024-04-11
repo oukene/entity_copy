@@ -2,7 +2,37 @@ import logging
 
 from .const import *
 import re
-from homeassistant.components.climate import *
+from homeassistant.components.climate import (
+    ClimateEntity,
+    ATTR_CURRENT_TEMPERATURE,
+    ATTR_CURRENT_HUMIDITY,
+    ATTR_TARGET_TEMP_HIGH,
+    ATTR_TARGET_TEMP_LOW,
+    ATTR_TARGET_TEMP_STEP,
+    ATTR_HUMIDITY,
+    ATTR_MAX_TEMP,
+    ATTR_MIN_TEMP,
+    ATTR_MAX_HUMIDITY,
+    ATTR_MIN_HUMIDITY,
+    ATTR_HVAC_MODE,
+    HVACMode,
+    ATTR_HVAC_MODES,
+    ATTR_PRESET_MODE,
+    ATTR_PRESET_MODES,
+    ATTR_FAN_MODE,
+    ATTR_FAN_MODES,
+    ATTR_SWING_MODE,
+    ATTR_SWING_MODES,
+    ATTR_AUX_HEAT,
+    HVACAction,
+    ATTR_HVAC_ACTION,
+    SERVICE_SET_HVAC_MODE,
+    SERVICE_SET_PRESET_MODE,
+    SERVICE_SET_FAN_MODE,
+    SERVICE_SET_HUMIDITY,
+    SERVICE_SET_SWING_MODE,
+    SERVICE_SET_TEMPERATURE,
+)
 
 from homeassistant.components.climate.const import ClimateEntityFeature
 

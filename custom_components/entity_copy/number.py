@@ -2,8 +2,17 @@ import logging
 
 from .const import *
 import re
-from homeassistant.components.number import *
-from homeassistant.components.number import SERVICE_SET_VALUE
+from homeassistant.components.number import (
+    SERVICE_SET_VALUE, 
+    NumberEntity, 
+    ATTR_MAX, 
+    ATTR_MIN, 
+    ATTR_STEP, 
+    DEFAULT_MAX_VALUE, 
+    DEFAULT_MIN_VALUE, 
+    DEFAULT_STEP, 
+    NumberMode
+)
 
 from .device import EntityBase, async_setup
 

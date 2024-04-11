@@ -2,8 +2,21 @@ import logging
 
 from .const import *
 import re
-from homeassistant.components.fan import *
-
+from homeassistant.components.fan import (
+    FanEntity,
+    ATTR_DIRECTION,
+    ATTR_OSCILLATING,
+    ATTR_PERCENTAGE,
+    ATTR_PERCENTAGE_STEP,
+    ATTR_PRESET_MODES,
+    ATTR_PRESET_MODE,
+    FanEntityFeature,
+    SERVICE_SET_DIRECTION,
+    SERVICE_SET_PRESET_MODE,
+    SERVICE_SET_PERCENTAGE,
+    SERVICE_OSCILLATE,
+)
+from typing import Any
 from .device import EntityBase, async_setup
 
 from homeassistant.const import *

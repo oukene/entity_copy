@@ -2,8 +2,7 @@ import logging
 
 from .const import *
 import re
-from homeassistant.components.text import *
-from homeassistant.components.text import ATTR_MIN, ATTR_MAX, SERVICE_SET_VALUE, ATTR_PATTERN, ATTR_VALUE
+from homeassistant.components.text import ATTR_MIN, ATTR_MAX, SERVICE_SET_VALUE, ATTR_PATTERN, ATTR_VALUE, TextEntity, TextMode
 
 from .device import EntityBase, async_setup
 
