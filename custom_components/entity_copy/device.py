@@ -211,7 +211,8 @@ class EntityBase(Entity):
             #self._attributes[CONF_ORIGIN_ENTITY] = self._origin_entity_id
             self._state = new_state.state
             _LOGGER.debug("new_state.state : " + str(new_state.state))
-            self._device.publish_updates()
+            self.schedule_update_ha_state()
+            #self._device.publish_updates()
 
     # default property ###############################################################################################
     @property
