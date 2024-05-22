@@ -6,7 +6,9 @@ from homeassistant.components.lock import LockEntity, ATTR_CHANGED_BY, LockEntit
 from typing import Any
 from .device import EntityBase, async_setup
 
-from homeassistant.const import *
+from homeassistant.const import (
+    ATTR_CODE_FORMAT, STATE_LOCKED, STATE_LOCKING, STATE_UNLOCKING, STATE_JAMMED, ATTR_SUPPORTED_FEATURES
+)
 
 _LOGGER = logging.getLogger(__name__)
 

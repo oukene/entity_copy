@@ -35,7 +35,25 @@ from homeassistant.components.media_player.browse_media import (
     async_process_play_media_url,
 )
 
-from homeassistant.const import *
+from homeassistant.const import (
+    ATTR_SUPPORTED_FEATURES, ATTR_DEVICE_CLASS,
+    SERVICE_MEDIA_NEXT_TRACK,
+    SERVICE_MEDIA_STOP,
+    SERVICE_MEDIA_PLAY,
+    SERVICE_MEDIA_PLAY_PAUSE,
+    SERVICE_MEDIA_PREVIOUS_TRACK,
+    SERVICE_MEDIA_SEEK,
+    SERVICE_MEDIA_STOP,
+    SERVICE_REPEAT_SET,
+    SERVICE_SHUFFLE_SET,
+    SERVICE_TOGGLE,
+    SERVICE_TURN_ON,
+    SERVICE_TURN_OFF,
+    SERVICE_VOLUME_DOWN,
+    SERVICE_VOLUME_UP,
+    SERVICE_VOLUME_SET,
+    SERVICE_VOLUME_MUTE,
+)
 
 _LOGGER = logging.getLogger(__name__)
 

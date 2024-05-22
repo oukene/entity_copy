@@ -6,8 +6,6 @@ from homeassistant.components.sensor import SensorEntity
 
 from .device import EntityBase, async_setup
 
-from homeassistant.const import *
-
 _LOGGER = logging.getLogger(__name__)
 
 PLATFORM = "sensor"

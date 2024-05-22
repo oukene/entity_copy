@@ -7,7 +7,7 @@ from homeassistant.components.switch import SwitchEntity
 from .device import EntityBase, async_setup
 from typing import Any
 
-from homeassistant.const import *
+from homeassistant.const import SERVICE_TURN_ON, SERVICE_TURN_OFF
 
 _LOGGER = logging.getLogger(__name__)
 

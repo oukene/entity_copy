@@ -19,7 +19,9 @@ from homeassistant.components.humidifier import (
 from typing import Any
 from .device import EntityBase, async_setup
 
-from homeassistant.const import *
+from homeassistant.const import (
+    ATTR_MODE, ATTR_SUPPORTED_FEATURES, ATTR_DEVICE_CLASS, STATE_ON, SERVICE_TURN_ON, SERVICE_TURN_OFF
+)
 
 _LOGGER = logging.getLogger(__name__)
 

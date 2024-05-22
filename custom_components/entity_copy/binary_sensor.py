@@ -6,8 +6,6 @@ from homeassistant.components.binary_sensor import BinarySensorEntity
 
 from .device import EntityBase, async_setup
 
-from homeassistant.const import *
-
 _LOGGER = logging.getLogger(__name__)
 
 PLATFORM = "binary_sensor"

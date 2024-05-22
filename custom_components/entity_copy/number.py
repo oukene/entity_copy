@@ -16,7 +16,7 @@ from homeassistant.components.number import (
 
 from .device import EntityBase, async_setup
 
-from homeassistant.const import *
+from homeassistant.const import ATTR_MODE
 
 _LOGGER = logging.getLogger(__name__)
 

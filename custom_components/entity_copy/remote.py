@@ -16,7 +16,7 @@ from typing import Any
 
 from .device import EntityBase, async_setup
 
-from homeassistant.const import *
+from homeassistant.const import ATTR_SUPPORTED_FEATURES, SERVICE_TURN_ON, SERVICE_TURN_OFF, SERVICE_TOGGLE
 
 _LOGGER = logging.getLogger(__name__)
 

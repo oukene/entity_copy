@@ -6,7 +6,17 @@ from homeassistant.components.cover import CoverEntity, ATTR_CURRENT_POSITION, A
 
 from .device import EntityBase, async_setup
 
-from homeassistant.const import *
+from homeassistant.const import (
+    STATE_OPENING, 
+    SERVICE_OPEN_COVER, 
+    SERVICE_CLOSE_COVER, 
+    SERVICE_STOP_COVER, 
+    SERVICE_OPEN_COVER_TILT, 
+    SERVICE_CLOSE_COVER_TILT, 
+    SERVICE_SET_COVER_TILT_POSITION, 
+    SERVICE_STOP_COVER_TILT
+)
+
 from typing import Any
 
 _LOGGER = logging.getLogger(__name__)

@@ -39,7 +39,7 @@ from homeassistant.components.climate.const import ClimateEntityFeature
 
 from .device import EntityBase, async_setup
 
-from homeassistant.const import *
+from homeassistant.const import UnitOfTemperature, PRECISION_TENTHS, PRECISION_WHOLE, ATTR_TEMPERATURE, ATTR_SUPPORTED_FEATURES, SERVICE_TURN_ON, SERVICE_TURN_OFF
 
 _LOGGER = logging.getLogger(__name__)
 

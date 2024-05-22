@@ -6,8 +6,6 @@ from homeassistant.components.button import ButtonEntity, SERVICE_PRESS
 
 from .device import EntityBase, async_setup
 
-from homeassistant.const import *
-
 _LOGGER = logging.getLogger(__name__)
 
 PLATFORM = "button"

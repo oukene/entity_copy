@@ -7,8 +7,6 @@ from homeassistant.components.device_tracker.config_entry import *
 
 from .device import EntityBase, async_setup
 
-from homeassistant.const import *
-
 _LOGGER = logging.getLogger(__name__)
 
 PLATFORM = "device_tracker"

@@ -25,7 +25,9 @@ from homeassistant.helpers.entity_registry import RegistryEntryHider
 
 from homeassistant.helpers import config_validation as cv, discovery, entity, service
 
-from homeassistant.const import *
+from homeassistant.const import (
+    ATTR_ASSUMED_STATE, ATTR_DEVICE_CLASS, ATTR_UNIT_OF_MEASUREMENT, ATTR_ENTITY_PICTURE
+)
 
 ENTITY_ID_FORMAT = DOMAIN + ".{}"
 

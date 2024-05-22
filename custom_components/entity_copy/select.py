@@ -2,11 +2,9 @@ import logging
 
 from .const import *
 import re
-from homeassistant.components.select import SelectEntity, ATTR_OPTIONS
+from homeassistant.components.select import SelectEntity, ATTR_OPTIONS, ATTR_OPTION, SERVICE_SELECT_OPTION
 
 from .device import EntityBase, async_setup
-
-from homeassistant.const import *
 
 _LOGGER = logging.getLogger(__name__)
 
