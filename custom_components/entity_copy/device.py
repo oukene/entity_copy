@@ -1,6 +1,7 @@
 import asyncio
 from .const import *
 from homeassistant.helpers.entity import Entity
+from homeassistant.core import Event, EventStateChangedData, callback
 
 import logging
 import re
@@ -11,7 +12,7 @@ from threading import Timer
 
 from .const import *
 from homeassistant.helpers.entity import DeviceInfo, async_generate_entity_id
-from homeassistant.helpers.event import async_track_state_change
+from homeassistant.helpers.event import async_track_state_change_event
 
 import homeassistant
 
@@ -195,14 +196,18 @@ class EntityBase(Entity):
         self._state = None
         self._attributes = {}
         
-        self.hass.data[DOMAIN][self._entry_id]["listener"].append(async_track_state_change(
-            self.hass, self._origin_entity, self.entity_listener))
+        self.hass.data[DOMAIN][self._entry_id]["listener"].append(async_track_state_change_event(
+            self.hass, self._origin_entity, self._state_changed_event))
         new_state = self.hass.states.get(self._origin_entity)
         old_state = self.hass.states.get(self.entity_id)
         _LOGGER.debug("origin entity state - " + str(new_state))
 
         self.entity_listener(self._origin_entity, old_state, new_state)
 
+    @callback  # type: ignore[misc]
+    def _state_changed_event(self, event: Event) -> None:
+        """state change event."""
+        self.entity_listener(event.data.get("entity_id"),event.data.get("old_state"),event.data.get("new_state"))
 
     def entity_listener(self, entity, old_state, new_state):
         _LOGGER.debug("call entity listener2")
