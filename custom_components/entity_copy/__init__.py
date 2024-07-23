@@ -35,10 +35,11 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     #entry.add_update_listener(update_listener)
     # This creates each HA object for each platform your device requires.
     # It's done by calling the `async_setup_entry` function in each platform module.
-    for component in ENTITY_TYPE.keys():
-        hass.async_create_task(
-            hass.config_entries.async_forward_entry_setup(entry, component)
-        )
+    # for component in ENTITY_TYPE.keys():
+    #     hass.async_create_task(
+    #         hass.config_entries.async_forward_entry_setup(entry, component)
+    #     )
+    await hass.config_entries.async_forward_entry_setups(entry, ENTITY_TYPE.keys())
 
 
     return True
