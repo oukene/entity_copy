@@ -3,13 +3,12 @@ import logging
 from .const import *
 import re
 from homeassistant.components.camera import (
-    Camera, 
-    STATE_RECORDING, 
-    STATE_STREAMING,
+    Camera,
     StreamType,
     CameraEntityFeature,
     SERVICE_ENABLE_MOTION,
     SERVICE_DISABLE_MOTION,
+    CameraState,
 )
 
 from .device import EntityBase, async_setup
@@ -29,11 +28,11 @@ class EntityCollector(EntityBase, Camera):
     # platform property #############################################################################
     @property
     def is_recording(self) -> bool:
-        return self._state == STATE_RECORDING
+        return self._state == CameraState.STATE_RECORDING
 
     @property
     def is_streaming(self) -> bool:
-        return self._state == STATE_STREAMING
+        return self._state == CameraState.STATE_STREAMING
 
     @property
     def motion_detection_enabled(self) -> bool:

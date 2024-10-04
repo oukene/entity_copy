@@ -1,13 +1,13 @@
 import logging
 
-from .const import *
+#from .const import *
 import re
-from homeassistant.components.lock import LockEntity, ATTR_CHANGED_BY, LockEntityFeature
+from homeassistant.components.lock import LockEntity, ATTR_CHANGED_BY, LockEntityFeature, LockState
 from typing import Any
 from .device import EntityBase, async_setup
 
 from homeassistant.const import (
-    ATTR_CODE_FORMAT, STATE_LOCKED, STATE_LOCKING, STATE_UNLOCKING, STATE_JAMMED, ATTR_SUPPORTED_FEATURES
+    ATTR_CODE_FORMAT, ATTR_SUPPORTED_FEATURES
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -31,19 +31,19 @@ class EntityCollector(EntityBase, LockEntity):
     
     @property
     def is_locked(self) -> bool | None:
-        return self._state == STATE_LOCKED
+        return self._state == LockState.STATE_LOCKED
 
     @property
     def is_locking(self) -> bool | None:
-        return self._state == STATE_LOCKING
+        return self._state == LockState.STATE_LOCKING
 
     @property
     def is_unlocking(self) -> bool | None:
-        return self._state == STATE_UNLOCKING
+        return self._state == LockState.STATE_UNLOCKING
 
     @property
     def is_jammed(self) -> bool | None:
-        return self._state == STATE_JAMMED
+        return self._state == LockState.STATE_JAMMED
 
     @property
     def supported_features(self) -> int | None:
